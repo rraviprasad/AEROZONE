@@ -24,6 +24,16 @@ const ZoomIcon = ({ width = 18, height = 18, stroke = "#fff" }) => (
 );
 
 
+const findRowValue = (row, keys) => {
+  for (const key of keys) {
+    if (row[key] != null && row[key] !== "") {
+      return row[key];
+    }
+  }
+  return null;
+};
+
+
 const Analysis1page = () => {
   const [rows, setRows] = useState([]);
   const [filteredRows, setFilteredRows] = useState([]);
@@ -37,7 +47,7 @@ const Analysis1page = () => {
   const [filters, setFilters] = useState({
     search: "",
     itemCode: "",
-    projecCode: "",
+    projectCode: "",
     description: "",
     refStart: "",
     refEnd: "",
@@ -263,7 +273,7 @@ const Analysis1page = () => {
     );
   };
 
-  if (loading) return <div className="p-6 text-purple-400">Loading Orbit Data…</div>;
+  if (loading) return <div className="p-6 text-purple-400">Loading Analysis Data…</div>;
   if (error) return <div className="p-6 text-red-500">{error}</div>;
   return (
     <div

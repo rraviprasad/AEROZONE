@@ -45,7 +45,7 @@ const Module3Page1 = () => {
   const [filters, setFilters] = useState({
     search: "",
     itemCode: "",
-    projecCode: "",
+    projectCode: "",
     description: "",
     refStart: "",
     refEnd: "",
