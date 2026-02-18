@@ -1,14 +1,14 @@
 import React, { useMemo, useState, useEffect } from "react";
-import { motion, useAnimation } from "motion/react";
+import { motion, useAnimation } from "framer-motion";
 
 // Debounce Hook (New)
 function useDebounce(value, delay = 400) {
-    const [debounced, setDebounced] = useState(value);
-    useEffect(() => {
-        const handler = setTimeout(() => setDebounced(value), delay);
-        return () => clearTimeout(handler);
-    }, [value, delay]);
-    return debounced;
+  const [debounced, setDebounced] = useState(value);
+  useEffect(() => {
+    const handler = setTimeout(() => setDebounced(value), delay);
+    return () => clearTimeout(handler);
+  }, [value, delay]);
+  return debounced;
 }
 
 /* ---------------- Magnet Icon ---------------- */
@@ -56,27 +56,27 @@ const Magnet = ({
 
 
 export default function Filters({ filters, setFilters, applyFilters, rows }) {
-    const { search, itemCode, description, refStart, refEnd, projectCode } = filters;
+  const { search, itemCode, description, refStart, refEnd, projectCode } = filters;
 
-    // ✅ Debounced fields
-    const debouncedSearch = useDebounce(search);
-    const debouncedDescription = useDebounce(description);
+  // ✅ Debounced fields
+  const debouncedSearch = useDebounce(search);
+  const debouncedDescription = useDebounce(description);
 
-    // Send debounced values to parent filtering logic (but only when applyFilters is clicked)
-    useEffect(() => {
-        setFilters(f => ({ ...f, search: debouncedSearch, description: debouncedDescription }));
-    }, [debouncedSearch, debouncedDescription, setFilters]);
+  // Send debounced values to parent filtering logic (but only when applyFilters is clicked)
+  useEffect(() => {
+    setFilters(f => ({ ...f, search: debouncedSearch, description: debouncedDescription }));
+  }, [debouncedSearch, debouncedDescription, setFilters]);
 
-    // ✅ Extract item codes once from rows
-    const itemCodes = useMemo(
-        () => [...new Set(rows.map((r) => r.ItemCode || r.ITEM_CODE))].filter(Boolean),
-        [rows]
-    );
-    const projectCodes = useMemo(
-        () => [...new Set(rows.map((r) => r.ProjectCode || r.PROJECT_CODE))].filter(Boolean),
-        [rows]
-    );
-const inputClass =
+  // ✅ Extract item codes once from rows
+  const itemCodes = useMemo(
+    () => [...new Set(rows.map((r) => r.ItemCode || r.ITEM_CODE))].filter(Boolean),
+    [rows]
+  );
+  const projectCodes = useMemo(
+    () => [...new Set(rows.map((r) => r.ProjectCode || r.PROJECT_CODE))].filter(Boolean),
+    [rows]
+  );
+  const inputClass =
     "w-full px-3 py-1.5 text-xs rounded-md bg-zinc-900 border border-zinc-400 text-zinc-100 placeholder-zinc-100 focus:outline-none focus:ring-2 focus:ring-zinc-600 transition";
 
   return (

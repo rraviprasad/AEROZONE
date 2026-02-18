@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from "react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 export default function ProjectCylinder({ rows = [] }) {
     const [hoveredIndex, setHoveredIndex] = useState(null);

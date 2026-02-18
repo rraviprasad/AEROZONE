@@ -1,5 +1,5 @@
 import React, { useMemo, useState, useEffect } from "react";
-import { motion, useAnimation } from "motion/react";
+import { motion, useAnimation } from "framer-motion";
 
 // Debounce Hook (New)
 function useDebounce(value, delay = 400) {

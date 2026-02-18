@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 export default function StackedBarChart({ rows = [] }) {
   const [animatedValues, setAnimatedValues] = useState({ ordered: 0, inventory: 0, indent: 0 });
