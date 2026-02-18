@@ -99,7 +99,7 @@ const Module2Page1 = () => {
 
             try {
                 const [dataRes] = await Promise.all([
-                    fetch("https://aerozone3-1.onrender.com/api/data/prism"),
+                    fetch("/api/data/prism"),
                 ]);
 
                 if (!dataRes.ok) throw new Error("Backend Error");

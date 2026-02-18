@@ -72,7 +72,7 @@ const Module3Page1 = () => {
           }
         }
 
-        const res = await fetch("https://aerozone3-1.onrender.com/api/data/orbit");
+        const res = await fetch("/api/data/orbit");
         const data = await res.json();
 
         localStorage.setItem("orbitData", JSON.stringify(data));

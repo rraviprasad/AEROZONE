@@ -40,7 +40,11 @@
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^4.1.13",
     "three": "^0.182.0",
-    "xlsx": "^0.18.5"
+    "xlsx": "^0.18.5",
+    "express": "^5.1.0",
+    "mongoose": "^8.9.5",
+    "cors": "^2.8.5",
+    "multer": "^2.0.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",

@@ -35,8 +35,8 @@ const DataPage = () => {
     const fetchData = async () => {
       try {
         const [res1, res2] = await Promise.all([
-          fetch("https://aerozone3-1.onrender.com/api/data/get-data"),
-          fetch("https://aerozone3-1.onrender.com/api/data/get-indent")
+          fetch("/api/data/get-data"),
+          fetch("/api/data/get-indent")
         ]);
 
         if (!res1.ok || !res2.ok) throw new Error("Backend Error");

@@ -63,7 +63,7 @@ const Analysis1page = () => {
           }
         }
 
-        const res = await fetch("https://aerozone3-1.onrender.com/api/data/analysis");
+        const res = await fetch("/api/data/analysis");
         const data = await res.json();
 
         localStorage.setItem("analysisData", JSON.stringify(data));

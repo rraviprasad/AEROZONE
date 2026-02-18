@@ -31,7 +31,7 @@ export default function UploadForm({ setLoading }) {
 
     try {
       setLoading(true);
-      const res = await fetch("https://aerozone3-1.onrender.com/api/data/upload-excel", {
+      const res = await fetch("/api/data/upload-excel", {
         method: "POST",
         body: formData,
       });
