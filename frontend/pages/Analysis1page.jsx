@@ -65,11 +65,17 @@ const Analysis1page = () => {
         if (!isReload) {
           const cachedData = localStorage.getItem("analysisData");
           if (cachedData) {
-            const parsed = JSON.parse(cachedData);
-            setRows(parsed);
-            setFilteredRows(parsed);
-            setLoading(false);
-            return;
+            try {
+              const parsed = JSON.parse(cachedData);
+              if (Array.isArray(parsed)) {
+                setRows(parsed);
+                setFilteredRows(parsed);
+                setLoading(false);
+                return;
+              }
+            } catch (e) {
+              localStorage.removeItem("analysisData");
+            }
           }
         }
 
